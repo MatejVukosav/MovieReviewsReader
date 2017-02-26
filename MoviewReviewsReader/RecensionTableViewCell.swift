@@ -11,15 +11,24 @@ import UIKit
 class RecensionTableViewCell: UITableViewCell {
     
     private let imageDownloadQueue = OperationQueue()
-    
+    private var url:String = ""
     
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var movieImageView: UIImageView!
     
-    func setup(image:UIImage,title:String){
-        self.title.text=title
-        self.movieImageView.image=image
+    func setup(url:String,title:String){
+        self.title.text = title
+        self.url = url
+       // self.movieImageView.image=image
+        
+        DispatchQueue.global().async{
+            let data = try? Data(contentsOf: URL( string: self.url )!)
+            DispatchQueue.main.async{
+                self.movieImageView.image=UIImage(data:data!)
+            }
+        }
+
     }
     
     override func awakeFromNib() {
@@ -31,10 +40,6 @@ class RecensionTableViewCell: UITableViewCell {
         imageDownloadQueue.cancelAllOperations()
     }
 
-    func setup(){
-        
-      //  imageDownloadQueue.addOperation(imageDownloadOperation)
-    }
     
     private func imageDownloadOperation(with operationIndex: Int, completion: @escaping StringClosure) -> Operation {
         let operation = ImageDownloadOperation(with: operationIndex, completion: completion)

@@ -139,12 +139,10 @@
 		CE38502F1E63020E00654D1A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE88B26E1E6344E0003A2FD7 /* Xib */,
 				CE38503C1E63037300654D1A /* RecensionDetailsViewController.swift */,
-				CE38503D1E63037300654D1A /* RecensionDetailsViewController.xib */,
 				CE38503E1E63037300654D1A /* RecensionsViewController.swift */,
-				CE38503F1E63037300654D1A /* RecensionsViewController.xib */,
 				CE3850421E63037300654D1A /* ReviewDetailsWebViewViewController.swift */,
-				CE3850431E63037300654D1A /* ReviewDetailsWebViewViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -170,6 +168,16 @@
 			isa = PBXGroup;
 			children = (
 				CE3850411E63037300654D1A /* RecensionTableViewCell.xib */,
+			);
+			name = Xib;
+			sourceTree = "<group>";
+		};
+		CE88B26E1E6344E0003A2FD7 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				CE38503D1E63037300654D1A /* RecensionDetailsViewController.xib */,
+				CE38503F1E63037300654D1A /* RecensionsViewController.xib */,
+				CE3850431E63037300654D1A /* ReviewDetailsWebViewViewController.xib */,
 			);
 			name = Xib;
 			sourceTree = "<group>";

@@ -19,6 +19,10 @@ class RecensionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //za ulazak iz pozadine registriraj metodu
+        NotificationCenter.default.addObserver(self, selector:#selector(RecensionsViewController.methodToRefresh), name:NSNotification.Name.UIApplicationWillEnterForeground, object:UIApplication.shared
+        )
 
         tableView.register(UINib(nibName:cellIdentifier,bundle:nil), forCellReuseIdentifier: cellIdentifier)
         
@@ -31,6 +35,18 @@ class RecensionsViewController: UIViewController {
         
         getData()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func methodToRefresh(){
+        
+        recensions.removeAll()
+        tableView.reloadData()
+        getData()
+    }
+    
     
     func getData(){
         //dohvati podatke s interneta
@@ -75,7 +91,7 @@ extension RecensionsViewController : UITableViewDataSource{
         
         if recensions.count != 0{
             let r = recensions[indexPath.item]
-            cell.setup(image: UIImage(),title: r.headline)
+            cell.setup(url: r.multimedia.src,title: r.headline)
         }
         
         return cell

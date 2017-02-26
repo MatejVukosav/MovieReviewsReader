@@ -21,10 +21,12 @@ class ReviewDetailsWebViewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+       
+        
+        
         if let url = URL(string:urlString){
             let request = URLRequest(url:url)
-          //  webView.loadHTMLString( urlString, baseURL: nil)
+                      //  webView.loadHTMLString( urlString, baseURL: nil)
             webView.loadRequest(request)
         }
     }
