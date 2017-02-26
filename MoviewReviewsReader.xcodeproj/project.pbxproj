@@ -8,20 +8,50 @@
 
 /* Begin PBXBuildFile section */
 		CE3850191E6300F100654D1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3850181E6300F100654D1A /* AppDelegate.swift */; };
-		CE38501B1E6300F100654D1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38501A1E6300F100654D1A /* ViewController.swift */; };
 		CE38501E1E6300F100654D1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE38501C1E6300F100654D1A /* Main.storyboard */; };
 		CE3850201E6300F100654D1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE38501F1E6300F100654D1A /* Assets.xcassets */; };
 		CE3850231E6300F100654D1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3850211E6300F100654D1A /* LaunchScreen.storyboard */; };
+		CE3850441E63037300654D1A /* ApiLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3850361E63037300654D1A /* ApiLink.swift */; };
+		CE3850451E63037300654D1A /* ApiMultimedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3850371E63037300654D1A /* ApiMultimedia.swift */; };
+		CE3850461E63037300654D1A /* ApiRecension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3850381E63037300654D1A /* ApiRecension.swift */; };
+		CE3850471E63037300654D1A /* ApiRecensionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3850391E63037300654D1A /* ApiRecensionsResponse.swift */; };
+		CE3850481E63037300654D1A /* ImageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38503A1E63037300654D1A /* ImageDownloadOperation.swift */; };
+		CE38504A1E63037300654D1A /* RecensionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38503C1E63037300654D1A /* RecensionDetailsViewController.swift */; };
+		CE38504B1E63037300654D1A /* RecensionDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE38503D1E63037300654D1A /* RecensionDetailsViewController.xib */; };
+		CE38504C1E63037300654D1A /* RecensionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE38503E1E63037300654D1A /* RecensionsViewController.swift */; };
+		CE38504D1E63037300654D1A /* RecensionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE38503F1E63037300654D1A /* RecensionsViewController.xib */; };
+		CE38504E1E63037300654D1A /* RecensionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3850401E63037300654D1A /* RecensionTableViewCell.swift */; };
+		CE38504F1E63037300654D1A /* RecensionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3850411E63037300654D1A /* RecensionTableViewCell.xib */; };
+		CE3850501E63037300654D1A /* ReviewDetailsWebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3850421E63037300654D1A /* ReviewDetailsWebViewViewController.swift */; };
+		CE3850511E63037300654D1A /* ReviewDetailsWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE3850431E63037300654D1A /* ReviewDetailsWebViewViewController.xib */; };
+		CE3850531E63058E00654D1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE3850521E63058E00654D1A /* Podfile */; };
+		D01846A0E13C7726D725F0AC /* Pods_MoviewReviewsReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF815030E7DCCD25DD7C9F5 /* Pods_MoviewReviewsReader.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EF815030E7DCCD25DD7C9F5 /* Pods_MoviewReviewsReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviewReviewsReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84849DB5954154F660573932 /* Pods-MoviewReviewsReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviewReviewsReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoviewReviewsReader/Pods-MoviewReviewsReader.debug.xcconfig"; sourceTree = "<group>"; };
 		CE3850151E6300F100654D1A /* MoviewReviewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviewReviewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3850181E6300F100654D1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE38501A1E6300F100654D1A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE38501D1E6300F100654D1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE38501F1E6300F100654D1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE3850221E6300F100654D1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE3850241E6300F100654D1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE3850361E63037300654D1A /* ApiLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiLink.swift; sourceTree = "<group>"; };
+		CE3850371E63037300654D1A /* ApiMultimedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiMultimedia.swift; sourceTree = "<group>"; };
+		CE3850381E63037300654D1A /* ApiRecension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRecension.swift; sourceTree = "<group>"; };
+		CE3850391E63037300654D1A /* ApiRecensionsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRecensionsResponse.swift; sourceTree = "<group>"; };
+		CE38503A1E63037300654D1A /* ImageDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadOperation.swift; sourceTree = "<group>"; };
+		CE38503C1E63037300654D1A /* RecensionDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecensionDetailsViewController.swift; sourceTree = "<group>"; };
+		CE38503D1E63037300654D1A /* RecensionDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecensionDetailsViewController.xib; sourceTree = "<group>"; };
+		CE38503E1E63037300654D1A /* RecensionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecensionsViewController.swift; sourceTree = "<group>"; };
+		CE38503F1E63037300654D1A /* RecensionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecensionsViewController.xib; sourceTree = "<group>"; };
+		CE3850401E63037300654D1A /* RecensionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecensionTableViewCell.swift; sourceTree = "<group>"; };
+		CE3850411E63037300654D1A /* RecensionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecensionTableViewCell.xib; sourceTree = "<group>"; };
+		CE3850421E63037300654D1A /* ReviewDetailsWebViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewDetailsWebViewViewController.swift; sourceTree = "<group>"; };
+		CE3850431E63037300654D1A /* ReviewDetailsWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewDetailsWebViewViewController.xib; sourceTree = "<group>"; };
+		CE3850521E63058E00654D1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		FEBD2DC0224694E0B32852CC /* Pods-MoviewReviewsReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviewReviewsReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoviewReviewsReader/Pods-MoviewReviewsReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D01846A0E13C7726D725F0AC /* Pods_MoviewReviewsReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +71,8 @@
 			children = (
 				CE3850171E6300F100654D1A /* MoviewReviewsReader */,
 				CE3850161E6300F100654D1A /* Products */,
+				F38A0B6F65CD6E13872FA8DB /* Pods */,
+				F67871752D666D33A9AC60FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +87,108 @@
 		CE3850171E6300F100654D1A /* MoviewReviewsReader */ = {
 			isa = PBXGroup;
 			children = (
+				CE3850521E63058E00654D1A /* Podfile */,
 				CE3850181E6300F100654D1A /* AppDelegate.swift */,
-				CE38501A1E6300F100654D1A /* ViewController.swift */,
+				CE38502C1E6301E800654D1A /* Source */,
+				CE38502B1E6301B900654D1A /* Resources */,
+			);
+			path = MoviewReviewsReader;
+			sourceTree = "<group>";
+		};
+		CE38502B1E6301B900654D1A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				CE38501C1E6300F100654D1A /* Main.storyboard */,
 				CE38501F1E6300F100654D1A /* Assets.xcassets */,
 				CE3850211E6300F100654D1A /* LaunchScreen.storyboard */,
 				CE3850241E6300F100654D1A /* Info.plist */,
 			);
-			path = MoviewReviewsReader;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CE38502C1E6301E800654D1A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CE3850301E63021D00654D1A /* Models */,
+				CE38502F1E63020E00654D1A /* ViewControllers */,
+				CE38502E1E63020700654D1A /* Network */,
+				CE38502D1E63020100654D1A /* Util */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		CE38502D1E63020100654D1A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CE38503A1E63037300654D1A /* ImageDownloadOperation.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		CE38502E1E63020700654D1A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CE3850361E63037300654D1A /* ApiLink.swift */,
+				CE3850371E63037300654D1A /* ApiMultimedia.swift */,
+				CE3850381E63037300654D1A /* ApiRecension.swift */,
+				CE3850391E63037300654D1A /* ApiRecensionsResponse.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		CE38502F1E63020E00654D1A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE38503C1E63037300654D1A /* RecensionDetailsViewController.swift */,
+				CE38503D1E63037300654D1A /* RecensionDetailsViewController.xib */,
+				CE38503E1E63037300654D1A /* RecensionsViewController.swift */,
+				CE38503F1E63037300654D1A /* RecensionsViewController.xib */,
+				CE3850421E63037300654D1A /* ReviewDetailsWebViewViewController.swift */,
+				CE3850431E63037300654D1A /* ReviewDetailsWebViewViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CE3850301E63021D00654D1A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE3850321E63022E00654D1A /* Xib */,
+				CE3850311E63022800654D1A /* Code */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CE3850311E63022800654D1A /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				CE3850401E63037300654D1A /* RecensionTableViewCell.swift */,
+			);
+			name = Code;
+			sourceTree = "<group>";
+		};
+		CE3850321E63022E00654D1A /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				CE3850411E63037300654D1A /* RecensionTableViewCell.xib */,
+			);
+			name = Xib;
+			sourceTree = "<group>";
+		};
+		F38A0B6F65CD6E13872FA8DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84849DB5954154F660573932 /* Pods-MoviewReviewsReader.debug.xcconfig */,
+				FEBD2DC0224694E0B32852CC /* Pods-MoviewReviewsReader.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F67871752D666D33A9AC60FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0EF815030E7DCCD25DD7C9F5 /* Pods_MoviewReviewsReader.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE3850271E6300F100654D1A /* Build configuration list for PBXNativeTarget "MoviewReviewsReader" */;
 			buildPhases = (
+				F8BBC21035D64366CDEA05CA /* [CP] Check Pods Manifest.lock */,
 				CE3850111E6300F100654D1A /* Sources */,
 				CE3850121E6300F100654D1A /* Frameworks */,
 				CE3850131E6300F100654D1A /* Resources */,
+				28AD1168AE48BA6D4C6D0BE0 /* [CP] Embed Pods Frameworks */,
+				75696C98A392745D799B43DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,19 +256,80 @@
 			files = (
 				CE3850231E6300F100654D1A /* LaunchScreen.storyboard in Resources */,
 				CE3850201E6300F100654D1A /* Assets.xcassets in Resources */,
+				CE3850531E63058E00654D1A /* Podfile in Resources */,
+				CE38504F1E63037300654D1A /* RecensionTableViewCell.xib in Resources */,
+				CE3850511E63037300654D1A /* ReviewDetailsWebViewViewController.xib in Resources */,
+				CE38504D1E63037300654D1A /* RecensionsViewController.xib in Resources */,
+				CE38504B1E63037300654D1A /* RecensionDetailsViewController.xib in Resources */,
 				CE38501E1E6300F100654D1A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		28AD1168AE48BA6D4C6D0BE0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoviewReviewsReader/Pods-MoviewReviewsReader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75696C98A392745D799B43DC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MoviewReviewsReader/Pods-MoviewReviewsReader-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8BBC21035D64366CDEA05CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CE3850111E6300F100654D1A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE38501B1E6300F100654D1A /* ViewController.swift in Sources */,
+				CE3850441E63037300654D1A /* ApiLink.swift in Sources */,
+				CE38504A1E63037300654D1A /* RecensionDetailsViewController.swift in Sources */,
+				CE3850461E63037300654D1A /* ApiRecension.swift in Sources */,
+				CE38504E1E63037300654D1A /* RecensionTableViewCell.swift in Sources */,
 				CE3850191E6300F100654D1A /* AppDelegate.swift in Sources */,
+				CE3850501E63037300654D1A /* ReviewDetailsWebViewViewController.swift in Sources */,
+				CE3850471E63037300654D1A /* ApiRecensionsResponse.swift in Sources */,
+				CE3850451E63037300654D1A /* ApiMultimedia.swift in Sources */,
+				CE38504C1E63037300654D1A /* RecensionsViewController.swift in Sources */,
+				CE3850481E63037300654D1A /* ImageDownloadOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +450,7 @@
 		};
 		CE3850281E6300F100654D1A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84849DB5954154F660573932 /* Pods-MoviewReviewsReader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J7AZHSKSC3;
@@ -272,6 +464,7 @@
 		};
 		CE3850291E6300F100654D1A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEBD2DC0224694E0B32852CC /* Pods-MoviewReviewsReader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J7AZHSKSC3;
@@ -302,6 +495,7 @@
 				CE3850291E6300F100654D1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
