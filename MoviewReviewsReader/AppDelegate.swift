@@ -16,10 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let rc=RecensionsViewController()
-        window=UIWindow(frame:UIScreen.main.bounds)
-        let nc=UINavigationController(rootViewController:rc)
-        window?.rootViewController=nc
+        let persistanceService = PersistenceService()
+        
+        let rc = RecensionsViewController(persistanceService:persistanceService)
+        
+        window = UIWindow(frame:UIScreen.main.bounds)
+        let nc = UINavigationController(rootViewController:rc)
+        window?.rootViewController = nc
         window?.makeKeyAndVisible()
         
         return true

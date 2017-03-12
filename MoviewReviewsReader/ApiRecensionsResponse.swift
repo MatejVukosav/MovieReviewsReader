@@ -21,7 +21,7 @@ final class ApiRecensionsResponse : Mappable{
         mapping(map:map)
     }
  
-    func mapping(map:Map){
+    func mapping(map: Map) {
         status <- map["status"]
         copyright <- map["copyright"]
         has_more <- map["has_more"]
@@ -29,4 +29,22 @@ final class ApiRecensionsResponse : Mappable{
         recensions <- map["results"]
     }
     
+}
+
+
+struct ApiRecensionStruct {
+    let status: String
+    let copyright: String
+
+    init(json: [String: Any]) {
+        if
+            let stat = json["status"] as? String,
+            let copy = json["copyright"] as? String {
+            self.copyright=copy
+            self.status=stat
+        }else{
+            self.copyright=""
+            self.status=""
+        }
+    }
 }

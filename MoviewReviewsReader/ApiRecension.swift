@@ -7,6 +7,7 @@
 //
 
 import ObjectMapper
+import CoreData
 
 final class ApiRecension : Mappable{
     
@@ -20,10 +21,10 @@ final class ApiRecension : Mappable{
     var opening_date:String!
     var date_updated:String!
     var link:ApiLink!
-    var multimedia:ApiMultimedia!
+    var multimedia:ApiMultimedia!    
     
-  public init?(map: Map) {
-    mapping(map:map)
+    public init?(map: Map) {
+        mapping(map:map)
     }
     
     func mapping(map:Map){
@@ -39,5 +40,6 @@ final class ApiRecension : Mappable{
         link <- map["link"]
         multimedia <- map["multimedia"]
     }
-    
+  
 }
+

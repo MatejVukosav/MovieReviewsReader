@@ -20,8 +20,8 @@ class RecensionTableViewCell: UITableViewCell {
     func setup(url:String,title:String){
         self.title.text = title
         self.url = url
-       // self.movieImageView.image=image
-        
+
+        //dohvat slike s interneta
         DispatchQueue.global().async{
             let data = try? Data(contentsOf: URL( string: self.url )!)
             DispatchQueue.main.async{
@@ -30,16 +30,11 @@ class RecensionTableViewCell: UITableViewCell {
         }
 
     }
-    
-    override func awakeFromNib() {
-        
-    }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         imageDownloadQueue.cancelAllOperations()
     }
-
     
     private func imageDownloadOperation(with operationIndex: Int, completion: @escaping StringClosure) -> Operation {
         let operation = ImageDownloadOperation(with: operationIndex, completion: completion)

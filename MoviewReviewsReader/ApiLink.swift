@@ -14,8 +14,6 @@ final class ApiLink:Mappable{
     var url:String!
     var suggested_link_text:String!
 
-    
-
     public init?(map: Map) {
         mapping(map:map)
     }

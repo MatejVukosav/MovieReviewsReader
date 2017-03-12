@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Comment" representedClassName=".Comment" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date_published" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="reviewRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recension" inverseName="commentRelationship" inverseEntity="Recension" syncable="YES"/>
+    </entity>
+    <entity name="Link" representedClassName=".Link" syncable="YES">
+        <attribute name="suggestedLinkText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="reviewRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recension" inverseName="linkRelationship" inverseEntity="Recension" syncable="YES"/>
+    </entity>
+    <entity name="Multimedia" representedClassName=".Multimedia" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="src" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="reviewRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recension" inverseName="multimediaRelationship" inverseEntity="Recension" syncable="YES"/>
+        <fetchedProperty name="fetchedProperty" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Multimedia"/>
+        </fetchedProperty>
+    </entity>
+    <entity name="Recension" representedClassName=".Review" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comment" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="displayTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headline" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="multimedia" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="publicationDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="summary_short" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="commentRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Comment" inverseName="reviewRelationship" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="linkRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Link" inverseName="reviewRelationship" inverseEntity="Link" syncable="YES"/>
+        <relationship name="multimediaRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Multimedia" inverseName="reviewRelationship" inverseEntity="Multimedia" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Comment" positionX="-126" positionY="-225" width="128" height="105"/>
+        <element name="Link" positionX="88" positionY="-81" width="128" height="105"/>
+        <element name="Multimedia" positionX="277" positionY="-270" width="128" height="164"/>
+        <element name="Recension" positionX="90" positionY="-477" width="128" height="210"/>
+    </elements>
+</model>
