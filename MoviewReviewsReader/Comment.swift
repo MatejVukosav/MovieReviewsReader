@@ -12,9 +12,9 @@ import UIKit
 
 public final class Comment: NSManagedObject {
     
-   var date: Date = Date()
-   var author: String = ""
-   var text: String = ""
+   @NSManaged var date: Date
+   @NSManaged var author: String
+   @NSManaged var text: String
     
     //dodan public da bude vidljivost kao i klasa 
     override public func awakeFromInsert() {
@@ -25,21 +25,25 @@ public final class Comment: NSManagedObject {
     
     static func insert(into context: NSManagedObjectContext,
                        author: String,
-                       text: String){
+                       text: String,
                      
-                       //completion: @escaping(Comment) -> () ){
-        
-        print("Spremi komentar")
-        
-       // context.perform{
-       //     let comment: Comment = context.insertObject()
-        //     comment.text = text
-        //    comment.author = author
+                       completion: @escaping (Comment) -> () ){
+                
+        context.perform{
+            let comment: Comment = context.insertObject()
             
-       //     let status = context.saveOrRollback()
-       //     print("context saved: ",status)
-       //     completion(comment)
-       // }
+            comment.text = text
+            comment.author = author
+            
+            let status = context.saveOrRollback()
+            print("context saved: ",status)
+            completion(comment)
+        }
     }
+    
+}
+
+
+extension Comment: CoreDataManagedType {
     
 }
