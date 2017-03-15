@@ -35,6 +35,7 @@
 		CE3850531E63058E00654D1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CE3850521E63058E00654D1A /* Podfile */; };
 		CED70BA41E68853D00F5074F /* MovieReviewModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CED70BA21E68853D00F5074F /* MovieReviewModel.xcdatamodeld */; };
 		D01846A0E13C7726D725F0AC /* Pods_MoviewReviewsReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF815030E7DCCD25DD7C9F5 /* Pods_MoviewReviewsReader.framework */; };
+		D2B669A41E797EEA00C61ADB /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B669A31E797EEA00C61ADB /* DateUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		CE3850431E63037300654D1A /* ReviewDetailsWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewDetailsWebViewViewController.xib; sourceTree = "<group>"; };
 		CE3850521E63058E00654D1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CED70BA31E68853D00F5074F /* MovieReviewModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieReviewModel.xcdatamodel; sourceTree = "<group>"; };
+		D2B669A31E797EEA00C61ADB /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		FEBD2DC0224694E0B32852CC /* Pods-MoviewReviewsReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviewReviewsReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoviewReviewsReader/Pods-MoviewReviewsReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 				CE38503A1E63037300654D1A /* ImageDownloadOperation.swift */,
 				CE0B31581E75612800466613 /* NSManagedObjectContext.swift */,
 				CE0B315A1E7562B300466613 /* CoreDataManagedType.swift */,
+				D2B669A31E797EEA00C61ADB /* DateUtils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -277,7 +280,6 @@
 				TargetAttributes = {
 					CE3850141E6300F100654D1A = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = J7AZHSKSC3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -388,6 +390,7 @@
 				CE0B31631E7590B400466613 /* Recension.swift in Sources */,
 				CE3850451E63037300654D1A /* ApiMultimedia.swift in Sources */,
 				CE0B31651E75AA7300466613 /* Link.swift in Sources */,
+				D2B669A41E797EEA00C61ADB /* DateUtils.swift in Sources */,
 				CE38504C1E63037300654D1A /* RecensionsViewController.swift in Sources */,
 				CE3850481E63037300654D1A /* ImageDownloadOperation.swift in Sources */,
 			);
@@ -513,7 +516,7 @@
 			baseConfigurationReference = 84849DB5954154F660573932 /* Pods-MoviewReviewsReader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J7AZHSKSC3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MoviewReviewsReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vuki.MoviewReviewsReader;
@@ -527,7 +530,7 @@
 			baseConfigurationReference = FEBD2DC0224694E0B32852CC /* Pods-MoviewReviewsReader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = J7AZHSKSC3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MoviewReviewsReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vuki.MoviewReviewsReader;

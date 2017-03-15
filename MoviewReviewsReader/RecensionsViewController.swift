@@ -11,8 +11,6 @@ import UIKit
 class RecensionsViewController: UIViewController {
     
     fileprivate let cellIdentifier = String(describing:RecensionTableViewCell.self)
-    
-    //zasto ne radi s ?
     fileprivate var persistanceService = PersistenceService()
 
     @IBOutlet weak var tableView: UITableView!
@@ -35,24 +33,10 @@ class RecensionsViewController: UIViewController {
         
         tableView.delegate = self
         tableView.estimatedRowHeight = 10
-        
-        
-        //   if let frc = persistanceService?.fetchController(forRequest: request){
-        //      tableView.dataSource = UITableViewDataSource(tableView: tableView,
-        //                                      cellIdentifier: cellIdentifier,
-        //                                      fetchedResultController: frc,
-        //                                     delegate: self)
-        //}else{
-        //    tableView.dataSource = self
-        // }
         tableView.dataSource=self
 
+        getDataFromServer()
         
-        if let data = getDataFromCoreData() as? [Recension], !data.isEmpty {
-            recensions = data
-        }else{
-            getDataFromServer()
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -73,13 +57,6 @@ class RecensionsViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func getDataFromCoreData() -> [Recension]{
-        //dohvati podatke iz core data
-        var data:[Recension] = [Recension]()
-        
-        
-        return data
-    }
     
     func getDataFromServer(){
         //dohvati podatke s interneta
@@ -95,32 +72,16 @@ class RecensionsViewController: UIViewController {
                 let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String:Any]
 
                 let response = ApiRecensionsResponse(JSON: json)
-                if let  r = response?.recensions{
+                if let  apiRecensions = response?.recensions{
                     
-                    
-                    for apiRecension in r {
-                        let recension = Recension()
-                        recension.title = apiRecension.headline
-                        recension.displayTitle = apiRecension.displayTitle
-                        recension.summaryShort = apiRecension.summary_short
-                        recension.date = apiRecension.publication_date
-                        
-                        recension.link.url = apiRecension.link.url
-                        recension.link.type = apiRecension.link.type
-                        recension.link.suggestedLinkText = apiRecension.link.suggested_link_text
-
-                        recension.multimedia.src = apiRecension.multimedia.src
-                        recension.multimedia.type = apiRecension.multimedia.type
-                        recension.multimedia.height = apiRecension.multimedia.height
-                        recension.multimedia.width = apiRecension.multimedia.width
-                        
-                        recension.author = apiRecension.byline
-                        
-                        self.recensions.append(recension)
-                    }
+                    //TODO ovdje dohvacam recenzije i spremam ih u bazu
+                self.persistanceService.insertAllRecensions(apiRecensions: apiRecensions){
+                        recensionsSaved in
+                    print("Recensions saved: ", recensionsSaved)
+                    self.recensions = recensionsSaved
+                }
                     
                 }
-
                 OperationQueue.main.addOperation({
                     self.tableView.reloadData()
                 })
@@ -130,7 +91,11 @@ class RecensionsViewController: UIViewController {
         }).resume()
         
     }
+
 }
+
+
+
 
 extension RecensionsViewController : UITableViewDataSource {
     

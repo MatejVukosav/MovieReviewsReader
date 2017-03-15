@@ -12,8 +12,8 @@ final class ApiMultimedia : Mappable{
     
     var type:String!
     var src:String!
-    var width:Int!
-    var height:Int!
+    var width:Int32!
+    var height:Int32!
     
     public init?(map: Map) {
         mapping(map:map)

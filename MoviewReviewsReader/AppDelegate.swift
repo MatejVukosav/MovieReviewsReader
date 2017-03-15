@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let persistanceService = PersistenceService()
         
+        persistanceService.deleteCoreData()
+        
         let rc = RecensionsViewController(persistanceService:persistanceService)
         
         window = UIWindow(frame:UIScreen.main.bounds)

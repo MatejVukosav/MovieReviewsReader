@@ -12,7 +12,44 @@ import CoreData
 
 final class Link: NSManagedObject {
     
-    var suggestedLinkText: String = ""
-    var url: String = ""
-    var type: String = ""
+    @NSManaged var suggestedLinkText: String
+    @NSManaged var url: String
+    @NSManaged var type: String
+    
+    static func insert(into context: NSManagedObjectContext,
+                       suggestedLinkText: String,
+                       url: String,
+                       type: String,
+                        completion: @escaping (Link) -> () )  {
+            context.perform {
+            let link: Link = context.insertObject()
+            link.suggestedLinkText = suggestedLinkText
+            link.url = url
+            link.type = type
+          completion(link)
+        }
+    }
+    
+    static func insertIntoCoreData(into context: NSManagedObjectContext,
+                       suggestedLinkText: String,
+                       url: String,
+                       type: String,
+                       completion: @escaping (Link) -> () ) {
+        context.perform {
+            let link: Link = context.insertObject()
+            link.suggestedLinkText = suggestedLinkText
+            link.url = url
+            link.type = type
+            
+            let status = context.saveOrRollback()
+            print("context saved:", status)
+            completion(link)
+        }
+    }
+
+
+}
+
+extension Link: CoreDataManagedType {
+    
 }

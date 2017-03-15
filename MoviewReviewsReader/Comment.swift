@@ -10,30 +10,38 @@ import Foundation
 import CoreData
 import UIKit
 
-public final class Comment: NSManagedObject {
+final class Comment: NSManagedObject {
     
-   @NSManaged var date: Date
+   @NSManaged var date: String
    @NSManaged var author: String
    @NSManaged var text: String
-    
-    //dodan public da bude vidljivost kao i klasa 
-    override public func awakeFromInsert() {
-        super.awakeFromInsert()
-        self.date = Date()
-    }
-    
     
     static func insert(into context: NSManagedObjectContext,
                        author: String,
                        text: String,
-                     
                        completion: @escaping (Comment) -> () ){
                 
         context.perform{
             let comment: Comment = context.insertObject()
-            
             comment.text = text
             comment.author = author
+            comment.date = DateUtils.getCurrentDate()
+
+            completion(comment)
+        }
+    }
+    
+    //Kako maknut to dupliciranje koda u modelima??
+    static func insertIntoCoreData(into context: NSManagedObjectContext,
+                       author: String,
+                       text: String,
+                       completion: @escaping (Comment) -> () ){
+        
+        context.perform{
+            let comment: Comment = context.insertObject()
+            comment.text = text
+            comment.author = author
+            comment.date = DateUtils.getCurrentDate()
             
             let status = context.saveOrRollback()
             print("context saved: ",status)
