@@ -18,37 +18,31 @@ final class Comment: NSManagedObject {
     
     static func insert(into context: NSManagedObjectContext,
                        author: String,
-                       text: String,
-                       completion: @escaping (Comment) -> () ){
-                
-        context.perform{
-            let comment: Comment = context.insertObject()
+                       text: String) -> Comment {
+        var comment: Comment!
+        context.performAndWait {
+            comment =  context.insertObject() as Comment
             comment.text = text
             comment.author = author
             comment.date = DateUtils.getCurrentDate()
-
-            completion(comment)
         }
+        return comment
     }
     
-    //Kako maknut to dupliciranje koda u modelima??
-    static func insertIntoCoreData(into context: NSManagedObjectContext,
-                       author: String,
-                       text: String,
-                       completion: @escaping (Comment) -> () ){
-        
-        context.perform{
-            let comment: Comment = context.insertObject()
-            comment.text = text
-            comment.author = author
-            comment.date = DateUtils.getCurrentDate()
-            
-            let status = context.saveOrRollback()
-            print("context saved: ",status)
-            completion(comment)
-        }
-    }
-    
+//    //Kako maknut to dupliciranje koda u modelima??
+//    static func insertIntoCoreData(into context: NSManagedObjectContext,
+//                       author: String,
+//                       text: String) -> Comment {
+//        
+//        context.performAndWait {
+//            let comment: Comment = context.insertObject()
+//            comment.text = text
+//            comment.author = author
+//            comment.date = DateUtils.getCurrentDate()
+//            
+//            return comment
+//        }
+//    }
 }
 
 

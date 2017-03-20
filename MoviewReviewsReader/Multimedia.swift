@@ -21,38 +21,34 @@ final class Multimedia: NSManagedObject{
                        src: String,
                        type: String,
                        height: Int32,
-                       width: Int32,
-                       completion: @escaping (Multimedia) -> () ) {
-        context.perform {
-            let multimedia: Multimedia = context.insertObject()
+                       width: Int32) -> Multimedia {
+        var multimedia: Multimedia!
+        context.performAndWait {
+            multimedia = context.insertObject() as Multimedia
             multimedia.src = src
             multimedia.type = type
             multimedia.height = height
             multimedia.width = width
-            
-            completion(multimedia)
         }
+        return multimedia
     }
     
-    static func insertIntoCoreData(into context: NSManagedObjectContext,
-                       src: String,
-                       type: String,
-                       height: Int32,
-                       width: Int32,
-                       completion: @escaping (Multimedia) -> () ) {
-        context.perform {
-            let multimedia: Multimedia = context.insertObject()
-            multimedia.src = src
-            multimedia.type = type
-            multimedia.height = height
-            multimedia.width = width
-            
-            let status = context.saveOrRollback()
-            print("context saved:", status)
-            completion(multimedia)
-        }
-    }
-    
+//    static func insertIntoCoreData(into context: NSManagedObjectContext,
+//                       src: String,
+//                       type: String,
+//                       height: Int32,
+//                       width: Int32) -> Multimedia {
+//
+//        context.performAndWait {
+//            let multimedia: Multimedia = context.insertObject()
+//            multimedia.src = src
+//            multimedia.type = type
+//            multimedia.height = height
+//            multimedia.width = width
+//            
+//            return multimedia
+//        }
+//    }
 }
 extension Multimedia: CoreDataManagedType {
     

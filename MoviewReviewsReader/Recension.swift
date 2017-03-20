@@ -28,10 +28,11 @@ final class Recension: NSManagedObject{
                        link: Link,
                        multimedia: Multimedia,
                        summaryShort: String,
-                       title: String,
-                       completion: @escaping (Recension) -> () ) {
-        context.perform {
-            let savedRecension: Recension = context.insertObject()
+                       title: String) -> Recension {
+
+        var savedRecension: Recension!
+        context.performAndWait {
+            savedRecension = context.insertObject() as Recension
             savedRecension.author = author
             savedRecension.comment = comment
             savedRecension.date = date
@@ -40,36 +41,33 @@ final class Recension: NSManagedObject{
             savedRecension.multimedia = multimedia
             savedRecension.summaryShort = summaryShort
             savedRecension.title = title
-            completion(savedRecension)
         }
+        return savedRecension
     }
     
-    static func insertIntoCoreData(into context: NSManagedObjectContext,
-                       author: String,
-                       comment: Comment,
-                       date: String,
-                       displayTitle: String,
-                       link: Link,
-                       multimedia: Multimedia,
-                       summaryShort: String,
-                       title: String,
-                       completion: @escaping (Recension) -> () ) {
-        context.perform {
-            let savedRecension: Recension = context.insertObject()
-            savedRecension.author = author
-            savedRecension.comment = comment
-            savedRecension.date = date
-            savedRecension.displayTitle = displayTitle
-            savedRecension.link = link
-            savedRecension.multimedia = multimedia
-            savedRecension.summaryShort = summaryShort
-            savedRecension.title = title
-            
-            let status = context.saveOrRollback()
-            print("context saved:", status)
-            completion(savedRecension)
-        }
-    }
+//    static func insertIntoCoreData(into context: NSManagedObjectContext,
+//                       author: String,
+//                       comment: Comment,
+//                       date: String,
+//                       displayTitle: String,
+//                       link: Link,
+//                       multimedia: Multimedia,
+//                       summaryShort: String,
+//                       title: String) -> Recension {
+//        context.perform {
+//            let savedRecension: Recension = context.insertObject()
+//            savedRecension.author = author
+//            savedRecension.comment = comment
+//            savedRecension.date = date
+//            savedRecension.displayTitle = displayTitle
+//            savedRecension.link = link
+//            savedRecension.multimedia = multimedia
+//            savedRecension.summaryShort = summaryShort
+//            savedRecension.title = title
+//            
+//            return recension
+//        }
+//    }
 
     
 }

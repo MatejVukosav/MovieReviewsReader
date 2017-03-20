@@ -83,7 +83,6 @@ final class PersistenceService {
 }
 
 extension PersistenceService {
-
     
     func createRecension(author: String,
                        comment: Comment,
@@ -92,16 +91,13 @@ extension PersistenceService {
                        link: Link,
                        multimedia: Multimedia,
                        summaryShort: String,
-                       title: String,
-                       completion: @escaping (Recension) -> () ) {
+                       title: String) -> Recension {
         
         guard let context = mainContext else {
             fatalError("context not available")
         }
-        
-     
-        
-        Recension.insert(into: context,
+
+        return Recension.insert(into: context,
                     author: author,
                     comment: comment,
                     date: date,
@@ -109,58 +105,47 @@ extension PersistenceService {
                     link: link,
                     multimedia: multimedia,
                     summaryShort: summaryShort,
-                    title: title) {
-                        recension in completion(recension)
-            }
+                    title: title)
     }
     
-    func createLink(  suggestedLinkText: String,
+    func createLink(suggestedLinkText: String,
                       url: String,
-                      type: String,
-                      completion: @escaping (Link) -> () ){
+                      type: String) -> Link {
         
         guard let context = mainContext else {
             fatalError()
         }
         
-        Link.insert(into: context,
+        return Link.insert(into: context,
                     suggestedLinkText: suggestedLinkText,
                     url: url,
-                    type: type){
-                        link in completion(link)
-        }
+                    type: type)
     }
     
     func createMultimedia(src: String,
                         type: String,
                         height: Int32,
-                        width: Int32,
-                      completion: @escaping (Multimedia) -> () ){
+                        width: Int32) -> Multimedia {
         
         guard let context = mainContext else {
             fatalError()
         }
         
-        Multimedia.insert(into: context,
+        return Multimedia.insert(into: context,
                           src: src,
                           type: type,
                           height: height,
-                          width: width){
-                            multimedia in completion(multimedia)
-        }
+                          width: width)
     }
     
     
-    func createComment(withText text: String, author: String, completion: @escaping (Comment) -> ()) {
+    func createComment(withText text: String, author: String) -> Comment {
         
         guard let context = mainContext else {
             fatalError("context not available")
         }
         
-        Comment.insert(into: context, author: author, text: text){
-            comment in completion(comment)
-        }
-
+        return Comment.insert(into: context, author: author, text: text)
     }
     
     func delete(comment: Comment) {
@@ -177,6 +162,10 @@ extension PersistenceService {
     }
     
     //Save all recensions to core data
+    // primjeti da iako su nam metode koje stvaraju sve objekte sinkrone
+    // da ova metoda kaja radi batch insert je dalje asinkrona te mozes jednostvno
+    // zamjeniti main context s background contextom i na njemu raditi insert bez
+    // da ti UI blokira
     func insertAllRecensions(
                        apiRecensions: [ApiRecension],
                        completion: @escaping ([Recension]) -> () ) {
@@ -192,68 +181,48 @@ extension PersistenceService {
             for r in apiRecensions {
                 
                 //TODO kako dohvatiti ove podatke da ih spremim u pojedinu recenziju ako se svako kreiranje izvrsava asinkrono??
-                
-                var multimedia:Multimedia?
-                var comment: Comment?
-                var link: Link?
-                
-               self.createMultimedia(
+                // tako da napravis da rade sinkrono :)
+               let multimedia = self.createMultimedia(
                     src: r.multimedia.src,
                     type: r.multimedia.type,
                     height: r.multimedia.height,
-                    width: r.multimedia.width){
-                        multimediaSaved in
-                        print("Multimedia context saved: ", multimediaSaved)
-                        
-                }
+                    width: r.multimedia.width)
                 
-                //else put real user if login exists
-                self.createComment(withText: "",author: "Matej"){
-                    commentSaved in
-                    print("Comment context saved: ",commentSaved)
-                }
-                
-                self.createLink(suggestedLinkText: r.link.suggested_link_text,
+               //else put real user if login exists
+               let comment = self.createComment(withText: "",author: "Matej")
+
+               let link = self.createLink(suggestedLinkText: r.link.suggested_link_text,
                                                    url: r.link.url,
-                                                   type: r.link.type){
-                                                    linkSaved in
-                                                    print("Link saved: ", linkSaved)
-                }
-                
-                self.createRecension(author: r.byline,
+                                                   type: r.link.type)
+
+                let recension = self.createRecension(author: r.byline,
                                                      comment: comment,
                                                      date: r.date_updated,
                                                      displayTitle: r.displayTitle,
                                                      link: link,
                                                      multimedia: multimedia,
                                                      summaryShort: r.summary_short,
-                                                     title: r.headline){
-                    recension in print("Recension saved: ",recension)
-                    recensions.append(recension)
-                }
-                
-                
-                /*
-                recension.author =
+                                                     title: r.headline)
+
                 // force unwrap?? kako drugacije??
-                recension.multimedia = multimedia!
-                recension.link = link!
-                recension.comment = comment!
-                //
+                // mozes napraviti da su ti u core data modelu te veze koje recenzija ima na link, comment,... opcionalne
+                recension.multimedia = multimedia
+                recension.link = link
+                recension.comment = comment
+
                 recension.displayTitle = r.displayTitle
                 recension.title = r.headline
                 recension.summaryShort = r.summary_short
 
-                */
- 
+                recensions.append(recension)
             }
-            
+
+            // maknuo sam save iz insert metoda jer nema potrebe
+            // kad sve objekte napravis tek na kraju mozes save napraviti
             let status = context.saveOrRollback()
             print("context saved:", status)
             completion(recensions)
         }
     }
-
-
 }
 
